@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-20d@wplph!lk4m)fqba&y3-q2inen%%fkatb_s7=p6h^9y26s$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['31.220.109.57']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -127,3 +127,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+#Correos
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'biblioparque0@gmail.com'
+EMAIL_HOST_PASSWORD = 'prdwwteddfqvccub'  # ⚠️ Lo ideal sería usar variables de entorno
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

@@ -16,9 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Aplicaciones.Visitas.views import registro_visita
+from Aplicaciones.Visitas.views import registro_visita, registro_usuario, usuario_guardado, principal, inicio_secion, eleccion_visita, recuperar, datos_usuario, visita_guardada, datos_actualizados, funcionamiento
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("registro/", registro_visita, name="registro_visita"),
+    path("",principal, name="principal"),
+    path("visita/", registro_visita, name="registro_visita"),
+    path("usuario/", registro_usuario, name="registro_usuario"),
+    path("guardado/", usuario_guardado, name="usuario_guardado"),
+    path('eleccion/', eleccion_visita, name='eleccion'),
+    path('secion/',inicio_secion, name='inicio_secion'),
+    path('recuperar/',recuperar, name='recuperar'),
+    path('datos_usuario/', datos_usuario, name='datos_usuario'),
+    path('visita_guardada/', visita_guardada, name='visita_guardada'),
+    path('datos_actualizados/', datos_actualizados, name='datos_actualizados'),
+    path('funcionamiento/', funcionamiento, name='funcionamiento')
+
 ]

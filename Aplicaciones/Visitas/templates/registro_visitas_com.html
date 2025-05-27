@@ -1,0 +1,672 @@
+{%extends 'principal.html'%}
+{%block title%}Reguistro de Visita{%endblock%}
+
+        {%block content%}
+            <div class="main">
+
+                <!--Formulario-->
+                <form id="form" method="post" action="{% url 'registro_visita' %}" >
+                    {% csrf_token %}
+                    <!--Titulos-->
+                    <h2>Registro de Visita</h2>
+                    <h3>Ingrese los datos necesarios</h3>
+
+                <!--Regsitros ya estilados -->
+                    <div class="input_grub">
+                        <label for="name">Ingrese su nombre: </label>
+                        <input type="text" name="nombre" id="name" placeholder="Nombre" minlength="3" maxlength="100" required>
+
+                        <label for="edad">Ingrese su edad:</label>
+                        <input type="number" name="edad" id="edad" placeholder="Edad" required min='0' max='120'>
+
+                        <label>Ingrese su Sexo:</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="sexo" value="M" required> Hombre
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" value="F" required> Mujer
+                            </label>
+                        </div>
+
+                        <label for="">De que colonia procede:</label>
+                        <div class="select-box">
+                            <div class="select-option">
+                                <input name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly></input>
+                            </div>
+                            <div class='content'>
+                                <div class='search'>
+                                    <input type='text' placeholder='Buscar' id='optionsSearch'></input>
+                                </div>
+                                <ul class='options'>
+                                    <li>10 de Abril</li>
+                                    <li>10 de Mayo</li>
+                                    <li>10 de Octubre</li>
+                                    <li>12 de Octubre</li>
+                                    <li>15 de Abril</li>
+                                    <li>15 de Septiembre</li>
+                                    <li>1° de Mayo</li>
+                                    <li>23 de Noviembre</li>
+                                    <li>26 de Marzo</li>
+                                    <li>26 de Marzo 2o Sect.</li>
+                                    <li>5 de Mayo</li>
+                                    <li>Acueducto</li>
+                                    <li>Adolfo Lopez Mateos</li>
+                                    <li>Agua Azul</li>
+                                    <li>Águila de Oro</li>
+                                    <li>Agua Nueva</li>
+                                    <li>Alameda</li>
+                                    <li>Álamos</li>
+                                    <li>Albatros</li>
+                                    <li>Alfredo V Bonfil</li>
+                                    <li>Alondra</li>
+                                    <li>Alpes</li>
+                                    <li>Alpes Norte</li>
+                                    <li>América</li>
+                                    <li>Amistad</li>
+                                    <li>Amistad Alianzas</li>
+                                    <li>Amistad II</li>
+                                    <li>Ampliación Palma</li>
+                                    <li>Ampliación Morelos</li>
+                                    <li>Ampliación Villas de San Lorenzo</li>
+                                    <li>Anáhuac</li>
+                                    <li>Antonio Cárdenas</li>
+                                    <li>Antonio Cárdenas Sur</li>
+                                    <li>Arboledas</li>
+                                    <li>Arboledas Popular</li>
+                                    <li>Arcos de Belén</li>
+                                    <li>Asturias</li>
+                                    <li>Australia</li>
+                                    <li>Avícola</li>
+                                    <li>Azteca</li>
+                                    <li>Balcones de Bellavista</li>
+                                    <li>Balcones de la Aurora</li>
+                                    <li>Balcones de Landin</li>
+                                    <li>Balcones de las Torres</li>
+                                    <li>Balcones de Morelos</li>
+                                    <li>Barrio Santa Anita</li>
+                                    <li>Bellavista</li>
+                                    <li>Bellavista Mesa de Arizpe</li>
+                                    <li>Benito Juárez</li>
+                                    <li>Bonanza</li>
+                                    <li>Brisas del Valle</li>
+                                    <li>Brisas II</li>
+                                    <li>Brisas Poniente</li>
+                                    <li>Buena Vista</li>
+                                    <li>Buenos Aires</li>
+                                    <li>Bugambilas</li>
+                                    <li>Burócratas del Estado</li>
+                                    <li>Burócratas Municipales</li>
+                                    <li>Camino Real</li>
+                                    <li>Campestre Cepellanía</li>
+                                    <li>Campestre la Poza</li>
+                                    <li>Campo Verde</li>
+                                    <li>Candelarias</li>
+                                    <li>Candelarias 2o Sector</li>
+                                    <li>Cd. las Torres Segundo Sector</li>
+                                    <li>Cecilia Ocealli de Salinas</li>
+                                    <li>Centenario</li>
+                                    <li>Centro Metropolitano</li>
+                                    <li>Cerrada Guadalupe</li>
+                                    <li>Cerritos</li>
+                                    <li>Cerro del Pueblo</li>
+                                    <li>Chamizal</li>
+                                    <li>Chapultepec</li>
+                                    <li>Chapultepec 2o Sector</li>
+                                    <li>Cima de Virreyes</li>
+                                    <li>Cipreses</li>
+                                    <li>Ciqa</li>
+                                    <li>Ciudad las Torres</li>
+                                    <li>Ciudad Mirasierra</li>
+                                    <li>Ciudad Mirasierra 2a Etapa</li>
+                                    <li>Ciudad Sanitaria</li>
+                                    <li>Colibrí</li>
+                                    <li>Colinas del Sur</li>
+                                    <li>Colinas de San Francisco</li>
+                                    <li>Colinas de San Lorenzo</li>
+                                    <li>Condesa</li>
+                                    <li>Condesa Poniente</li>
+                                    <li>Conejo Ixtlero</li>
+                                    <li>Conjunto Deimos Lourdes</li>
+                                    <li>Conquistadores</li>
+                                    <li>Conquistadores II</li>
+                                    <li>Contry Club</li>
+                                    <li>Cruz del Aire</li>
+                                    <li>Cumbres</li>
+                                    <li>Cumbres Residencial</li>
+                                    <li>Deimos</li>
+                                    <li>Del Valle III</li>
+                                    <li>Diana Laura Riojas de Colosio</li>
+                                    <li>Doctores</li>
+                                    <li>Doctores III Etapa</li>
+                                    <li>Ejercito Constitucionalista</li>
+                                    <li>Ejidal</li>
+                                    <li>El Álamo</li>
+                                    <li>El Álamo II</li>
+                                    <li>El Álamo III</li>
+                                    <li>El Baluarte</li>
+                                    <li>El Bosque</li>
+                                    <li>El Campanario</li>
+                                    <li>El Cerrito</li>
+                                    <li>El Latifundio</li>
+                                    <li>El Mimbre</li>
+                                    <li>El Morillo</li>
+                                    <li>El Nogalar</li>
+                                    <li>El Olmo</li>
+                                    <li>El Paraíso</li>
+                                    <li>El Pedregal</li>
+                                    <li>El Progreso</li>
+                                    <li>El Rodeo</li>
+                                    <li>El Rosario</li>
+                                    <li>El Salvador</li>
+                                    <li>El Sáuz</li>
+                                    <li>El Tanquecito</li>
+                                    <li>El Toreo</li>
+                                    <li>Emiliano Zapata</li>
+                                    <li>Emilio Carranza</li>
+                                    <li>Esther Santos</li>
+                                    <li>Europa</li>
+                                    <li>Evaristo Arriola Pérez</li>
+                                    <li>Ex Hacienda los Cerritos</li>
+                                    <li>Federico Berrueto Ramón</li>
+                                    <li>Federico Berrueto Ramón Popular</li>
+                                    <li>Ferrocarrilero</li>
+                                    <li>Ferrocarrilero 7 de Noviembre</li>
+                                    <li>Flora Ortega</li>
+                                    <li>FOVISSSTE Virreyes</li>
+                                    <li>Francisco I Madero</li>
+                                    <li>Francisco I Madero Rústico</li>
+                                    <li>Francisco Villa</li>
+                                    <li>Froylán Mier Narro</li>
+                                    <li>Fundadores</li>
+                                    <li>Fundadores de la Libertad</li>
+                                    <li>Fundadores III Sector</li>
+                                    <li>Gaspar Valdez</li>
+                                    <li>Genaro Vázquez Rojas</li>
+                                    <li>Girasol</li>
+                                    <li>Girasol 2da Etapa</li>
+                                    <li>González Cepeda</li>
+                                    <li>González Norte</li>
+                                    <li>Guadalupe Victoria</li>
+                                    <li>Guanajuato</li>
+                                    <li>Guanajuato Oriente</li>
+                                    <li>Guayulera</li>
+                                    <li>Guayulera Tierra y Esperanza</li>
+                                    <li>Gustavo Diaz Ordaz</li>
+                                    <li>Gustavo Espinosa Mireles</li>
+                                    <li>Hacienda del Refugio</li>
+                                    <li>Hacienda de Peña</li>
+                                    <li>Hacienda de Cortijo</li>
+                                    <li>Hacienda la Magueyada</li>
+                                    <li>Hacienda las Isabeles</li>
+                                    <li>Hacienda Real</li>
+                                    <li>Hacienda San Carlos</li>
+                                    <li>Hacienda San Rafael</li>
+                                    <li>Hacienda San Pablo</li>
+                                    <li>Héroes de Chapultepec</li>
+                                    <li>Huerta los Pilares</li>
+                                    <li>Huerta de San Lorenzo</li>
+                                    <li>Huertas de Venacio</li>
+                                    <li>Huerto de Flores</li>
+                                    <li>Humberto Dávila Esquivel</li>
+                                    <li>Ignacio Allende</li>
+                                    <li>Ignacio Zaragosa 1er Sector</li>
+                                    <li>Ignacio Zaragosa 3er Sector</li>
+                                    <li>Ignacio Zaragosa II Sector</li>
+                                    <li>Ignacio Zaragosa IV Sector</li>
+                                    <li>Ignacio Zaragosa Popular</li>
+                                    <li>Independencia</li>
+                                    <li>Industrial Valle de Saltillo</li>
+                                    <li>Ing. Eulalio Gutiérrez Treviño</li>
+                                    <li>Insurgentes</li>
+                                    <li>Introductores de Ganado</li>
+                                    <li>Isabel Amalia Dávila</li>
+                                    <li>Isabel Amalia de Flores Tapia</li>
+                                    <li>ISSSTE</li>
+                                    <li>Jacarandas Jardín</li>
+                                    <li>Jardín</li>
+                                    <li>Jardines Coloniales</li>
+                                    <li>Jardines del Lago</li>
+                                    <li>Jardines de los Bosques</li>
+                                    <li>Jardines del Valle</li>
+                                    <li>Jardines de Versalles</li>
+                                    <li>Jardines de Versalles 2da Etapa</li>
+                                    <li>Jardín Oriente</li>
+                                    <li>Jesus Cabello</li>
+                                    <li>Jesús Garcia Corona</li>
+                                    <li>Josefa Ortiz de Domínges</li>
+                                    <li>Juanbert</li>
+                                    <li>Julieta Pérez</li>
+                                    <li>Kiosco</li>
+                                    <li>Kiosco 2do Sector</li>
+                                    <li>Kiosco III</li>
+                                    <li>La Angostura</li>
+                                    <li>La Aurora</li>
+                                    <li>La Central</li>
+                                    <li>La Cineguita</li>
+                                    <li>La Ciudadela</li>
+                                    <li>Ladrilleros</li>
+                                    <li>La Esperanza</li>
+                                    <li>La Estrella</li>
+                                    <li>La Florencia</li>
+                                    <li>La Florida</li>
+                                    <li>La Fragua</li>
+                                    <li>La Fuente</li>
+                                    <li>La Fuente 2da Ampliación</li>
+                                    <li>Lagos Continentales</li>
+                                    <li>La Herradura</li>
+                                    <li>La Hibernia</li>
+                                    <li>La Joyita</li>
+                                    <li>La Libertad del Puente</li>
+                                    <li>La Madrid</li>
+                                    <li>La Minita</li>
+                                    <li>La Morita</li>
+                                    <li>Landin</li>
+                                    <li>Landín Ampliación</li>
+                                    <li>La Nogalera</li>
+                                    <li>La Noria</li>
+                                    <li>La Palma</li>
+                                    <li>La Palmilla</li>
+                                    <li>La Peñita</li>
+                                    <li>La Purísima</li>
+                                    <li>La Romita</li>
+                                    <li>La Rosa</li>
+                                    <li>La Rosaleda</li>
+                                    <li>La Salle</li>
+                                    <li>Las Brisas</li>
+                                    <li>Las Cabañas</li>
+                                    <li>Las Coquetas</li>
+                                    <li>Las Cumbres</li>
+                                    <li>Las Flores</li>
+                                    <li>Las Flores II</li>
+                                    <li>Las Haciendas</li>
+                                    <li>Las Huertas</li>
+                                    <li>Las Huertas de Lourdes</li>
+                                    <li>Las Magnolias</li>
+                                    <li>Las Maravillas</li>
+                                    <li>Las Margaritas</li>
+                                    <li>Las Misiones</li>
+                                    <li>Las Mitras</li>
+                                    <li>La Soledad y El Refugio</li>
+                                    <li>Las Praderas</li>
+                                    <li>Las Praderas III</li>
+                                    <li>Las Quintas</li>
+                                    <li>Las Rosas</li>
+                                    <li>Las Teresitas</li>
+                                    <li>Latinoamerica</li>
+                                    <li>Latinoamerica Norte</li>
+                                    <li>Lázaro Cárdenas</li>
+                                    <li>Leandro Valle</li>
+                                    <li>Loma Alta</li>
+                                    <li>Loma Blanca</li>
+                                    <li>Loma Bonita</li>
+                                    <li>Loma Bonita 2</li>
+                                    <li>Loma de Santa Anita</li>
+                                    <li>Loma Linda</li>
+                                    <li>Lomas de Chapultepec</li>
+                                    <li>Lomas de Landín</li>
+                                    <li>Lomas del Bosque</li>
+                                    <li>Lomas de Lourdes</li>
+                                    <li>Lomas del Pedregal</li>
+                                    <li>Lomas del Refugio</li>
+                                    <li>Lomas del Sur</li>
+                                    <li>Lomas de San Francisco</li>
+                                    <li>Lomas de San Javier</li>
+                                    <li>Lomas de Santa Cruz</li>
+                                    <li>Lomas de Zapaliname</li>
+                                    <li>Lomas Verdes</li>
+                                    <li>Lomas Verdes 2da Etapa</li>
+                                    <li>Los Adobes</li>
+                                    <li>Los Alamitos</li>
+                                    <li>Los Álamos</li>
+                                    <li>Los Algodones</li>
+                                    <li>Los Ángeles</li>
+                                    <li>Los Arcos</li>
+                                    <li>Los Arrayanes</li>
+                                    <li>Los Balcones</li>
+                                    <li>Los Balcones de Buenavista</li>
+                                    <li>Los Berros</li>
+                                    <li>Los Buitres</li>
+                                    <li>Los Buitres II</li>
+                                    <li>Los Cedros</li>
+                                    <li>Los Cerritos</li>
+                                    <li>Los Cuernitos</li>
+                                    <li>Los Doctores</li>
+                                    <li>Los Fresnos</li>
+                                    <li>Los Geranios</li>
+                                    <li>Los Gonzáles</li>
+                                    <li>Los Lirios</li>
+                                    <li>Los Maestros</li>
+                                    <li>Los Manantiales</li>
+                                    <li>Los Molinos</li>
+                                    <li>Los Nogales II</li>
+                                    <li>Los Olivos</li>
+                                    <li>Los Parques</li>
+                                    <li>Los Periodistas</li>
+                                    <li>Los Pinos</li>
+                                    <li>Los Pinos 1er Sector</li>
+                                    <li>Los Pinos 2do Sector</li>
+                                    <li>Los Reales</li>
+                                    <li>Los Rodriguez</li>
+                                    <li>Los Rosario Popular</li>
+                                    <li>Los Siller</li>
+                                    <li>Los Tulipanes</li>
+                                    <li>Los Valdez</li>
+                                    <li>Lourdes</li>
+                                    <li>Lucio Blanco</li>
+                                    <li>Magisterio</li>
+                                    <li>Magisterio Sección 38</li>
+                                    <li>María del Carmen Cabello</li>
+                                    <li>María del Carmen Cavazos</li>
+                                    <li>María de León</li>
+                                    <li>María Lusia</li>
+                                    <li>Mario Ortiz Rodríguez</li>
+                                    <li>Mesa de Lourdes</li>
+                                    <li>Miguel Hidalgo</li>
+                                    <li>Mirador</li>
+                                    <li>Miravalle</li>
+                                    <li>Misión Cerritos</li>
+                                    <li>Morelos</li>
+                                    <li>Morelos Nueva Creación</li>
+                                    <li>Nazario S Ortiz Garza</li>
+                                    <li>Nazario S. Ortiz Garza</li>
+                                    <li>Niños Héroes</li>
+                                    <li>Nogalar del Campestre</li>
+                                    <li>Nuestra Señora Fátima</li>
+                                    <li>Nueva Aurora</li>
+                                    <li>Nueva España</li>
+                                    <li>Nueva Imagen</li>
+                                    <li>Nueva Independencia</li>
+                                    <li>Nueva Jerusalén</li>
+                                    <li>Nueva Reforma</li>
+                                    <li>Nueva Tlaxcala</li>
+                                    <li>Nuevo Amanecer</li>
+                                    <li>Nuevo México</li>
+                                    <li>Nuevo Mirasierra 1a Etapa</li>
+                                    <li>Nueva Mirasierra 2da Etapa</li>
+                                    <li>Nuevo Mirasierra 3ra Etapa</li>
+                                    <li>Nuevo Progreso</li>
+                                    <li>Nuevo Saltillo</li>
+                                    <li>Nuevo Teresitas</li>
+                                    <li>Oasis</li>
+                                    <li>Obrera</li>
+                                    <li>Oceanía</li>
+                                    <li>Oceanía Boulevares</li>
+                                    <li>Ojo de Agua</li>
+                                    <li>Omega</li>
+                                    <li>Óscar Flores Tapia</li>
+                                    <li>Palacio de Gobierno del Estado Coahuila</li>
+                                    <li>Panteones</li>
+                                    <li>Parajes de la Sierra</li>
+                                    <li>Parajes del Oriente</li>
+                                    <li>Parajes de Santa Elena</li>
+                                    <li>Parque Industrial Amistad</li>
+                                    <li>Parque Industrial las Torres</li>
+                                    <li>Parque Industrial Mega</li>
+                                    <li>Parque las Maravillas</li>
+                                    <li>Parques de la Cañada</li>
+                                    <li>Patria Libre</li>
+                                    <li>Patria Nueva</li>
+                                    <li>Plaza</li>
+                                    <li>Portal de Aragón</li>
+                                    <li>Portal de las Lomas</li>
+                                    <li>Portal de los Agaves</li>
+                                    <li>Portal del Pedregal</li>
+                                    <li>Portal del Quijote</li>
+                                    <li>Portal del Sur</li>
+                                    <li>Portal de Santiago</li>
+                                    <li>Portales</li>
+                                    <li>Provivienda</li>
+                                    <li>Portareal</li>
+                                    <li>Postal Cerritos</li>
+                                    <li>Privada Albatros</li>
+                                    <li>Privada Beta Centauro</li>
+                                    <li>Privada Ciudad las Torres 2do Sector</li>
+                                    <li>Privada Coahuila</li>
+                                    <li>Privada Coahuila y Zacatecas</li>
+                                    <li>Privada Coloniales</li>
+                                    <li>Privada de San Javier</li>
+                                    <li>Privada España</li>
+                                    <li>Privada Francisco I. Madero</li>
+                                    <li>Privada Guadalupe</li>
+                                    <li>Privada la Campana</li>
+                                    <li>Privada la Misión</li>
+                                    <li>Privada los Magueyes</li>
+                                    <li>Privada Morelos</li>
+                                    <li>Privada Quinta Narro</li>
+                                    <li>Privada Rincón de Salazar</li>
+                                    <li>Privadas de Santiago</li>
+                                    <li>Privadas la Torre</li>
+                                    <li>Privadas Luxemburgo</li>
+                                    <li>Privadas Sierras del Oriente</li>
+                                    <li>Privada Tulipanes</li>
+                                    <li>Providencia</li>
+                                    <li>Pueblo Insurgentes</li>
+                                    <li>Puerta de Oriente</li>
+                                    <li>Puerta de Oriente 2da Etapa</li>
+                                    <li>Puerta del Rey</li>
+                                    <li>Puerta del Sol</li>
+                                    <li>Puerto de Flores</li>
+                                    <li>Puerto de la Virgen</li>
+                                    <li>Quinta Esmeralda</li>
+                                    <li>Quinta Guadalupe</li>
+                                    <li>Quinta Real</li>
+                                    <li>Quinta Valle</li>
+                                    <li>Rancho de Peña</li>
+                                    <li>Rancho de Flores</li>
+                                    <li>Rancho las Varas</li>
+                                    <li>Real del Sol</li>
+                                    <li>Real de Peña</li>
+                                    <li>Real Villas de la Aurora</li>
+                                    <li>Recreativo Sección 38</li>
+                                    <li>República</li>
+                                    <li>República Norte</li>
+                                    <li>República Oriente</li>
+                                    <li>República Poniente</li>
+                                    <li>Residencial El Tapanco</li>
+                                    <li>Residencial los Rosales</li>
+                                    <li>Residencial Mirador</li>
+                                    <li>Ricardo Flores Magón</li>
+                                    <li>Rinconada de la Hibernia</li>
+                                    <li>Rincón de Guadalupe</li>
+                                    <li>Rincón de la Florida</li>
+                                    <li>Rincón de San Vicente</li>
+                                    <li>Rincón de Sayavedra</li>
+                                    <li>Rincones de la Aurora</li>
+                                    <li>Rosa Maria Gutiérrez</li>
+                                    <li>Rubén Jaramillo</li>
+                                    <li>Ruiz Cortines</li>
+                                    <li>Salomon Abedrop</li>
+                                    <li>Saltillo 2000</li>
+                                    <li>Saltillo 400</li>
+                                    <li>Saltillo Zona Centro</li>
+                                    <li>San Alberto</li>
+                                    <li>San Ángel</li>
+                                    <li>San Esteban</li>
+                                    <li>San Ignacio</li>
+                                    <li>San Isidro</li>
+                                    <li>San Jerónimo</li>
+                                    <li>San Jóse</li>
+                                    <li>San Jóse de las Flores</li>
+                                    <li>San Jóse de los Cerritos</li>
+                                    <li>San Jóse Oriente</li>
+                                    <li>San Juanita</li>
+                                    <li>San Lorenzo</li>
+                                    <li>San Lorenzo Oriente</li>
+                                    <li>San Luis</li>
+                                    <li>San Miguel</li>
+                                    <li>San Patricio</li>
+                                    <li>San Patricio Plus</li>
+                                    <li>San Pedro de los Pinos</li>
+                                    <li>San Ramón</li>
+                                    <li>Santa Anita</li>
+                                    <li>Santa Bárbara</li>
+                                    <li>Santa Cristina</li>
+                                    <li>Santa Cristina Oriente</li>
+                                    <li>Santa Fe</li>
+                                    <li>Santa Lucia</li>
+                                    <li>Santa María</li>
+                                    <li>Santa Rosa</li>
+                                    <li>Santa Teresa</li>
+                                    <li>Santiago</li>
+                                    <li>San Vicente</li>
+                                    <li>Satélite Norte</li>
+                                    <li>Satélite Norte II</li>
+                                    <li>Satélite Sur</li>
+                                    <li>Satélite Sur 2do Sector</li>
+                                    <li>Satélite Sur 3er Sector</li>
+                                    <li>Segovia Gil</li>
+                                    <li>Sierra Blanca</li>
+                                    <li>Sierras del Poniente</li>
+                                    <li>Sierras del Sur</li>
+                                    <li>Simón Bolívar</li>
+                                    <li>Solidaridad</li>
+                                    <li>Tecnológico</li>
+                                    <li>Terranova</li>
+                                    <li>Tierra y Libertad</li>
+                                    <li>Topo Chico</li>
+                                    <li>Torrecillas y Ramones</li>
+                                    <li>Tulipanes 2da Etapa</li>
+                                    <li>Tulipanes 4ta Etapa</li>
+                                    <li>Unidad Habitacional Militar</li>
+                                    <li>Unidad Modelo</li>
+                                    <li>Universidad</li>
+                                    <li>Universidad la Salle</li>
+                                    <li>Universidad Norte</li>
+                                    <li>Universidad Pueblo</li>
+                                    <li>Universo</li>
+                                    <li>Urdiñola</li>
+                                    <li>Valencia</li>
+                                    <li>Valle Alto</li>
+                                    <li>Valle Azteca</li>
+                                    <li>Valle de las Aves</li>
+                                    <li>Valle de las Flores INFONAVIT</li>
+                                    <li>Valle de las Flores Popular</li>
+                                    <li>Valle de las Palmas</li>
+                                    <li>Valle de las Torres</li>
+                                    <li>Valle de los Virreyes</li>
+                                    <li>Valle de Lourdes</li>
+                                    <li>Valle de Morelos</li>
+                                    <li>Valle de San Antonio</li>
+                                    <li>Valle de San Lorenzo</li>
+                                    <li>Valle de San Ramón</li>
+                                    <li>Valle de Santa Elena</li>
+                                    <li>Valle Dorado</li>
+                                    <li>Valle Escondido</li>
+                                    <li>Valle Escondido del Sur</li>
+                                    <li>Valle Hermoso</li>
+                                    <li>Valle Real Primer Sector</li>
+                                    <li>Valle San Agustin</li>
+                                    <li>Valle Satélite</li>
+                                    <li>Valle Universidad</li>
+                                    <li>Valle Verde</li>
+                                    <li>Venustiano Carranza</li>
+                                    <li>Vicente Guerrero</li>
+                                    <li>Villa Bonita</li>
+                                    <li>Villa del Carmen</li>
+                                    <li>Villa de Santiago</li>
+                                    <li>Villa Fundadores</li>
+                                    <li>Villa Magna</li>
+                                    <li>Villa Morelos</li>
+                                    <li>Villa Olímpica</li>
+                                    <li>Villa Olímpica Oriente</li>
+                                    <li>Villas de Aranjuez</li>
+                                    <li>Villas de Guadalupe</li>
+                                    <li>Villas de la Aurora</li>
+                                    <li>Villas del Camino Real</li>
+                                    <li>Villas del Ranchito</li>
+                                    <li>Villas de San Carlos</li>
+                                    <li>Villas de San Gabriel</li>
+                                    <li>Villas de San Isidro</li>
+                                    <li>Villas de San Lorenzo</li>
+                                    <li>Villas de San Miguel</li>
+                                    <li>Villas de San Sebastián</li>
+                                    <li>Villas la Angostura</li>
+                                    <li>Villa Toscana</li>
+                                    <li>Villa Universidad</li>
+                                    <li>Villa Vergel</li>
+                                    <li>Villa Vergel 2da Etapa</li>
+                                    <li>Virramontes</li>
+                                    <li>Virreyes Colonial</li>
+                                    <li>Virreyes Industrial</li>
+                                    <li>Virreyes Obrera</li>
+                                    <li>Virreyes Pensiones</li>
+                                    <li>Virreyes Popular</li>
+                                    <li>Virreyes Residencial</li>
+                                    <li>Vista Hermosa</li>
+                                    <li>Zamora</li>
+                                    <li>Zapaliname</li>                                   
+                                    <li>Zapateros</li>
+                                    <li>Zona Industrial</li>
+                                </ul>
+                            </div>
+                                        
+                        </div>
+                        <label>Padece alguna discapacidad:</label>
+                        <div class="radio-group">
+                            <label for="discapacidad">
+                                <input type="radio" name="discapacidad" id="discapacidad" value="si">Sí
+                            </label>
+                            <label for="discapacidad">
+                                <input type="radio" name="discapacidad" id="discapacidad" value="no">No
+                            </label>
+                        </div>
+                        <select id="estado_nacimiento" name="estado_nacimiento">
+                            <option value="Aguascalientes">Aguascalientes</option>
+                            <option value="Baja California">Baja California</option>
+                            <option value="Baja California Sur">Baja California Sur</option>
+                            <option value="Campeche">Campeche</option>
+                            <option value="Chiapas">Chiapas</option>
+                            <option value="Chihuahua">Chihuahua</option>
+                            <option value="Ciudad de México">Ciudad de México</option>
+                            <option value="Coahuila">Coahuila</option>
+                            <option value="Colima">Colima</option>
+                            <option value="Durango">Durango</option>
+                            <option value="Estado de México">Estado de México</option>
+                            <option value="Guanajuato">Guanajuato</option>
+                            <option value="Guerrero">Guerrero</option>
+                            <option value="Hidalgo">Hidalgo</option>
+                            <option value="Jalisco">Jalisco</option>
+                            <option value="Michoacán">Michoacán</option>
+                            <option value="Morelos">Morelos</option>
+                            <option value="Nayarit">Nayarit</option>
+                            <option value="Nuevo León">Nuevo León</option>
+                            <option value="Oaxaca">Oaxaca</option>
+                            <option value="Puebla">Puebla</option>
+                            <option value="Querétaro">Querétaro</option>
+                            <option value="Quintana Roo">Quintana Roo</option>
+                            <option value="San Luis Potosí">San Luis Potosí</option>
+                            <option value="Sinaloa">Sinaloa</option>
+                            <option value="Sonora">Sonora</option>
+                            <option value="Tabasco">Tabasco</option>
+                            <option value="Tamaulipas">Tamaulipas</option>
+                            <option value="Tlaxcala">Tlaxcala</option>
+                            <option value="Veracruz">Veracruz</option>
+                            <option value="Yucatán">Yucatán</option>
+                            <option value="Zacatecas">Zacatecas</option>
+                        </select>
+
+                        <select id="actividad" name="actividad">
+                            <option value="Visita">Visita</option>
+                            <option value="Evento">Evento</option>
+                            <option value="biblioteca">Biblioteca</option>
+                        </select>                
+                    <!--Aviso de privacidad-->
+                    <div class="form-group">
+                        <label for="aviso_privacidad">
+                                <input type="checkbox" id="aviso_privacidad" name="aviso_privacidad" required>
+                        <span></span> <a download="Aviso de Privacidad" href="/static/Avisos_legales/cuentos.docx" required>Acepto los términos y condiciones de uso</a>
+                        </label>
+                    </div>
+                </div>
+
+                    <!--Sumit-->
+                    <input class="btn" type="submit" value="Enviar">
+
+
+                    <!--Fecha de registro escondida-->
+                    <label style='display:none;' for="fecha_hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha_hora" name="fecha_hora" style='display:none;'>
+
+                </form> 
+        {%endblock%}

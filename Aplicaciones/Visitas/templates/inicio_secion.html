@@ -1,0 +1,48 @@
+{%extends 'principal.html'%}
+{%block title%}Reguistrar Visita{%endblock%}
+{%block content%}
+    <main>
+        <div class="main">
+
+            <!--Formulario-->
+                {% if messages %}
+                     <ul class="messages">
+                 {% for message in messages %}
+                     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+                     </ul>
+                {% endif %}
+
+            <form id="form" method="post" action="{% url 'inicio_secion' %}" >
+                {% csrf_token %}
+                <!--Titulos-->
+                <h2>Registro de Visita</h2>
+                <h3>Ingrese los datos necesarios</h3>
+
+             <!--Regsitros ya estilados -->
+                <div class="input_grub">
+                    <label for="correo-curp">Ingrese su correo o CURP: </label>
+                    <input type="text" name="coreo_curp" id="name" placeholder="Correo - CURP" minlength="3" maxlength="100" required>
+
+                    <label for="Actividad que relizara">Actividad que realizara:</label>
+                    <select id="actividad" name="actividad">
+                        <option value="Visita">Visita</option>
+                        <option value="Evento">Evento</option>
+                        <option value="biblioteca">Biblioteca</option>
+                    </select>  
+
+                </div>
+                <input class="btn" type="submit" value="Enviar" style="background-color: rgb(0, 255, 76);">
+                
+                
+                
+            </form> 
+    <style>
+        @media (max-width:500px){
+            .main{
+                display: flex;
+            }
+        }
+    </style>
+{%endblock%}
+

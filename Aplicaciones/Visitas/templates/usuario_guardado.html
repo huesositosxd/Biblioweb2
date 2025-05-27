@@ -1,0 +1,19 @@
+{%extends 'principal.html'%}
+{%block title%}Reguistrar Visita{%endblock%}
+{%block content%}
+
+  <div class="body">
+      <div class="contenedor">
+          <h1>Usuario Guardado</h1>
+          <p>
+            <h1 style="font-weight: 500; font-size:1.5rem; margin-bottom: 10px;" >¡Registro exitoso!</h1>
+            Tu usuario ha sido guardado correctamente en nuestro sistema.
+            Ahora puedes regresar al inicio o continuar para registrar una nueva visita al BiblioParque Sur.
+          </p>
+          <div class="botones">
+              <a href="{%url 'eleccion'%}">Registrar  Visita</a>
+          </div>
+      </div>
+  </div>
+
+{%endblock%}

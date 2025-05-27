@@ -1,0 +1,18 @@
+{%extends 'principal.html'%}
+{%block title%}Reguistrar Visita{%endblock%}
+{%block content%}
+
+  <div class="body">
+      <div class="contenedor">
+          <h1>Registro de Visitas</h1>
+          <p>En esta sección puedes registrar tu visita. Si ya tienes un usuario, haz clic en el botón correspondiente para iniciar sesión y registrar tu entrada. Si no tienes usuario,
+            también puedes registrar tu visita como invitado usando el otro botón.
+          </p>
+          <div class="botones">
+              <a href="{%url 'inicio_secion'%}">Ya tengo usuario</a>
+              <a href="{%url 'registro_visita'%}">Entrar como invitado</a>
+          </div>
+      </div>
+  </div>
+
+{%endblock%}

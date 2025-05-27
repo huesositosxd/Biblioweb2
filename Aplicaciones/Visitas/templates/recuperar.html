@@ -1,0 +1,41 @@
+{%extends 'principal.html'%}
+{%block title%}Recuperar datos{%endblock%}
+{%block content%}
+<div class="main">
+
+    <!--Formulario-->
+        <form id="form" method="POST" action="{% url 'recuperar' %}" >
+            {% csrf_token %}
+            <!--Titulos-->
+
+            <div class="paso1" id='datos_g'>
+                <h2>Recuperacion de Datos</h2>
+                <h3>Ingrese los datos necesarios</h3>
+                
+                <!--Registros ya estilados -->
+                <div class="input_grub">
+                    <label for="correo">Correo electronico: </label>
+                    <input type="email" name="correo" id="correo" placeholder="Correo" maxlength="100" required>
+
+                        
+                    <label for="curp_contraseña">Ingrese su CURP o contraseña</label>
+                    <input type="text" id="curp_contraseña" name="curp_contraseña" placeholder="CURP - Contraseña" required>
+                </div>
+                         
+                <input class="btn" type="submit" value="Siguinte">
+
+            </div>
+
+        </form>
+        {% if error %}
+            <script>
+              alert("{{ error }}");
+            </script>
+        {% endif %}
+        <style>
+            form{
+                margin-top: 4.5rem;
+            }
+        </style>
+</div>
+{%endblock%}
