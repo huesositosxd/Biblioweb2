@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-20d@wplph!lk4m)fqba&y3-q2inen%%fkatb_s7=p6h^9y26s$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['31.97.9.44','www.biblioweb.com.mx', 'biblioweb.com.mx']
 
 
 # Application definition
@@ -137,3 +137,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'biblioparque0@gmail.com'
 EMAIL_HOST_PASSWORD = 'prdwwteddfqvccub'  # ⚠️ Lo ideal sería usar variables de entorno
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
