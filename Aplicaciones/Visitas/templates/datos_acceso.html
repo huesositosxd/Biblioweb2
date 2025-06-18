@@ -1,0 +1,53 @@
+{%extends 'principal.html'%}
+{%block title%}Validar Correo{%endblock%}
+{%block content%}
+ <!--Formulario-->
+
+ <div class="contaier" style=" margin-top: 6rem; margin-left: -0.2rem;">
+    <form id="form" method="post" action="{% url 'datos_acceso' %}" >
+        {% csrf_token %}
+
+        <div class="paso1" id="datos_g">
+
+                <!--Titulos-->
+                <h2>Correo electronico</h2>
+                <p>Escriba su correo electronico a donde se le embiara su codigo de verificacion, por favor escriba el correo</p>
+
+             <!--Regsitros ya estilados -->
+                <div class="input_grub">
+
+                    <input type="hidden" name="correo" value="{{ correo }}">
+
+
+                    <label for="correo">Ingrese el correo: </label>
+                    <input type="email" name="correo" id="correo" placeholder="Correo" minlength="4" maxlength="60" required>
+                    <input class="btn" type="submit" value="Enviar" style="background-color: rgb(0, 255, 76);">
+
+
+                </div>
+
+                
+        </div>
+    </form>
+
+ </div>
+
+ <style>
+    p{
+        font-weight: 400;
+        color: rgb(36, 35, 35);
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+   
+ </style>
+
+ {% if messages %}
+  <script>
+    {% for message in messages %}
+      alert("{{ message|escapejs }}");
+    {% endfor %}
+  </script>
+{% endif %}
+{%endblock%}

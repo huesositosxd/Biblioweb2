@@ -34,7 +34,7 @@ body{
 header{
     width: 100%;
     z-index: 200;
-    display: flex;
+    display: grid;
     justify-content:space-between;
     padding: 0.45rem 2rem 0.45rem 1.27rem;
     border-bottom: 1px solid var(--border-color);
@@ -192,6 +192,7 @@ header{
 .contaier .titulo{
     padding-top: 15PX;
     margin: 1rem;
+    margin-top: 2.8rem;
     margin-bottom: 3rem;
     font-size: 2rem;
 
@@ -204,10 +205,8 @@ header{
     position: relative;
 }
 .contaier .titulo h2{
-    display: grid;  
-    left: 0;
-    top:50px;
-    margin-bottom: 0;
+    display: flex;
+    align-items: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -234,14 +233,21 @@ header{
     margin: 1rem;
     margin-bottom: 0;
 }
+/*
 .contaier .cuerpo .p-imagen{
     font-weight: 700;
-}
+}*/
 
 /*Imagen*/
+.brand .mob{
+    font-size: 1.5rem;
+    font-weight: 900;
+    display: none;
+    color:var(--text-title-color);
+}
 
 .contaier .cuerpo .imagen{
-    width: 280px;
+    width: 300px;
     height: 300px;
     float: right;
     margin: 0 0 0 1rem;
@@ -282,7 +288,7 @@ header{
         width: 0;
     }
     .contaier .titulo h2{
-        top:30px;
+        top:25px;
     }
     .contaier{
         margin-left: 1rem;
@@ -300,5 +306,23 @@ header{
     }
     .main.menu-toggle{
         margin-left: 0;
+    }
+    .brand .name{
+        display: none;
+    }
+    .brand .mob{
+        display: flex;
+    }
+}
+
+
+@media (max-width:470px){
+    .contaier .titulo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contaier .titulo h2{
+        margin-bottom: 10px;
     }
 }

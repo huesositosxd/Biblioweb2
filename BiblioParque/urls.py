@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Aplicaciones.Visitas.views import registro_visita, registro_usuario, usuario_guardado, principal, inicio_secion, eleccion_visita, recuperar, datos_usuario, visita_guardada, datos_actualizados, funcionamiento
-
+from Aplicaciones.Visitas.views import registro_visita, registro_usuario, usuario_guardado, principal, inicio_secion, validacion_correo, correo_contrasenas
+from Aplicaciones.Visitas.views import eleccion_visita, recuperar, datos_usuario, visita_guardada, datos_actualizados, funcionamiento, eleccion_recupera, datos_acceso, modificar_acceso
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",principal, name="principal"),
@@ -30,6 +30,11 @@ urlpatterns = [
     path('datos_usuario/', datos_usuario, name='datos_usuario'),
     path('visita_guardada/', visita_guardada, name='visita_guardada'),
     path('datos_actualizados/', datos_actualizados, name='datos_actualizados'),
-    path('funcionamiento/', funcionamiento, name='funcionamiento')
+    path('funcionamiento/', funcionamiento, name='funcionamiento'),
+    path('eleccion_recupera/',  eleccion_recupera, name='eleccion_recupera'),
+    path('validacion_correo/', validacion_correo, name='validacion_correo'),
+    path('datos_acceso/', datos_acceso, name='datos_acceso'),
+    path('correo_contraseñas/',correo_contrasenas,name='correo_contrasenas'),
+    path('modificar_acceso/',modificar_acceso,name='modificar_acceso'),
 
 ]

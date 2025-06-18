@@ -1,6 +1,8 @@
 
 /* Botón */
-
+*{
+    box-sizing: border-box;
+}
 .btn {
     display: flex;
     font-size: 1rem;
@@ -21,6 +23,14 @@
 
 /* Asegurar que no haya desbordamiento horizontal */
 html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
     overflow-x: hidden;
     width: 100%;
 }
@@ -28,24 +38,30 @@ html, body {
 /* Contenedor principal */
 
 .main{
+    margin-top: 2rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:2.8rem;
+    padding: 1rem;
 }
 .bib2{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
-
+    margin-top: 60%;
 }
 /* Estilos del formulario */
 form {
-    margin-top: 2rem;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
     padding: 1.5rem;
+    height: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     text-align: center;
@@ -87,7 +103,7 @@ form h3 {
     font-size: 1rem;
     padding: 0.8rem;
     border-radius: 25px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     background-color: #c7e0cc;
     border: 2px solid #f5f5ed;
     color: rgb(32, 31, 31);
@@ -107,7 +123,9 @@ form h3 {
     gap: 3rem; /* Aumenta la separación entre los radio buttons */
     margin-bottom: 1rem; /* Separa los grupos de radio buttons de otros elementos */
 }
-
+.corto{
+    display: none;
+}
 .radio-group input {
     margin: 5px;
 }
@@ -120,13 +138,9 @@ form h3 {
 }
 /* Media queries para mejorar responsividad */
 @media (max-width: 600px) {
-    .bib2{
-        width: 100%;
-        margin: 0;
-    }
     form{
-        margin-top: 1rem;
-        width: 100%;
+        margin-top: 7rem;
+        max-width: 100%;
     }
 
     form h2 {
@@ -140,6 +154,14 @@ form h3 {
     .btn {
         font-size: 0.9rem;
         padding: 0.7rem;
+    }
+}
+@media (max-width: 450px) {
+    .largo {
+        display: none;
+    }
+    .corto {
+        display: flex;
     }
 }
 
@@ -166,7 +188,7 @@ form h3 {
   color: black;
   border: 0;
   border-radius: 25px;
-  background-color: #4ebe70;
+  background-color: #25b331;
   cursor: pointer;
   padding: 0.8rem;
   width: 100%;
@@ -175,7 +197,7 @@ form h3 {
   display: grid;
   align-items: center;
   &&:hover{
-    background-color: #84b655;
+    background-color: #99f543;
   }
 }
 .datos_c{
@@ -206,4 +228,51 @@ form h3 {
 }
 .main .titulo-secion{
   background-color: red;
+}
+
+/*COMPLETO*/
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.contenedor{
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    text-align: center;
+    background-color: #fff;
+}
+.titulos h1{
+    color: #283629;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.titulos p{
+    color: #283629;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.botones{
+    justify-content: space-around;
+}
+.Button{
+    font-size: 1rem;
+    color:rgb(17, 15, 15);
+    border: 0;
+    border-radius: 25px;
+    background-color: rgb(0, 255, 76);
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    margin: 5px;
+}
+.Button a{
+  background-color: rgb(62, 187, 24);
 }

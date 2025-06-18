@@ -24,8 +24,9 @@
                 </div>
             </div>
             <div class="brand">
-                <img src="../static/css/iconos/logo2.png" alt="icono-undemy" class="logo" >
-                <span class="name">BiblioWeb</span>
+               <!-- <img src="../static/css/iconos/" alt="icono-undemy" class="logo" >-->
+                <span class="name">Unidades deportivas de Saltillo</span>
+                <span class="mob">UNDESA</span>
             </div>
 
         </div>
@@ -65,7 +66,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{%url 'recuperar' %}">
+                    <a href="{%url 'eleccion_recupera' %}">
                         <img src="../static/css/iconos/restaurar.png" alt="">
                         <span>Recuperar Datos</span>
                     </a>
@@ -79,36 +80,41 @@
             </ul>
         </nav>
     </div>
-    <main class="main" id="main">
+    <main class="contaier" id="main">
       
         {%block content%}
-        <div class="contaier">
             <div class="titulo">
-                <h2>BIBLIOPARQUE SUR</h2>
+                <h2>UNDESA</h2>
             </div>
             <div class="cuerpo">
 
-                
-                <img src="../static/css/iconos/biblio.jpg" alt="" class="imagen">
-                <p class="p-imagen">
-                    El BiblioParque Sur es un espacio público diseñado para fomentar la convivencia, el aprendizaje y el bienestar de la comunidad. Más que un parque, es un punto de encuentro donde se integran la recreación, la cultura y la educación en un entorno seguro y accesible para personas de todas las edades.
-                    Ubicado en el sur de la ciudad, el BiblioParque cuenta con amplias áreas verdes, canchas deportivas, juegos infantiles y espacios techados ideales para realizar actividades tanto al aire libre como bajo techo. 
+               <video autoplay loop muted playsinline width="600" class="imagen">
+                    <source src="../static/css/iconos/video.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+                <!--<img src="../static/css/iconos/biblio.jpg" alt="" class="imagen">-->
+                <p class="p-imagen" style="font-weight: 550;">
+                    Las <strong>Unidades Deportivas de Saltillo (UNDESA)</strong> se han consolidado como espacios diseñados para fomentar la convivencia, el aprendizaje y el bienestar de la comunidad. Más que simples áreas verdes, estos lugares funcionan como puntos de encuentro donde se integran la recreación, la cultura y la educación en entornos seguros y accesibles para personas de todas las edades.
+                    Muchas de ellas cuentan con amplias áreas verdes, canchas deportivas, juegos infantiles y espacios techados ideales para realizar actividades tanto al aire libre como en interiores.
                 </p>
 
                 <br>
-                <p style="    font-weight: 550;">
-                    Además de sus instalaciones físicas, el BiblioParque Sur ofrece una variada programación de actividades y talleres gratuitos o de bajo costo, que van desde clases de baile, guitarra y computación, hasta actividades artísticas como modelado con plastilina, manualidades y lectura. Estos talleres están dirigidos a niños, jóvenes y adultos, promoviendo la participación de toda la comunidad en actividades culturales, educativas y recreativas.
-                    Esta página web tiene como propósito facilitar y automatizar el registro de visitantes que acuden regularmente al parque. Si deseas conocer más sobre cómo funciona este sistema, puedes consultar la sección "¿Cómo funciona?" en la barra lateral o hacer clic <a href="{%url 'funcionamiento'%}">Aquí</a>.
+
+                <p style="font-weight: 550;">
+                    Además de sus instalaciones físicas, las UNDESA ofrecen una variada programación de actividades y talleres, que pueden incluir clases de baile, guitarra, computación, actividades artísticas como modelado con plastilina, manualidades y fomento a la lectura. Algunas incluso cuentan con biblioteca o espacios culturales, dependiendo de la unidad. Estas actividades están dirigidas a niños, jóvenes y adultos, promoviendo la participación de toda la comunidad en actividades culturales, educativas y recreativas.
+                    Esta página web tiene como propósito facilitar y automatizar el registro de visitantes que acuden regularmente a estas unidades deportivas. Si deseas conocer más sobre cómo funciona este sistema, puedes consultar la sección "¿Cómo funciona?" en la barra lateral o hacer clic <a href="{% url 'funcionamiento' %}">Aquí</a>.
                 </p>
             </div>
             <br>
+
+            <!--
             <div class="footer">
                 <a href="https://www.google.com/maps/place/Biblioparque+Sur,+Blvd.+Otilio+Zurdo+Galv%C3%A1n,+Sin+Nombre+de+Col+22,+25086+Saltillo,+Coah./@25.3892794,-101.0132494,17z/data=!3m1!4b1!4m6!3m5!1s0x8688731d69034dff:0x3a092c49488ab450!8m2!3d25.3892794!4d-101.0132494!16s%2Fg%2F11bbrgfwlg?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"><img src="../static/css/iconos/minimapa.jpg" alt="" class="minimapa"></a>
                 <p>
                     Blvd. Otilio Zurdo Galván, Sin Nombre de Col 22, 25086 Saltillo, Coah.
                 </p>
             </div>
-        </div>
+            -->
         {%endblock%}
     </main>
 

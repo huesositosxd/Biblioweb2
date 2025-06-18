@@ -1,0 +1,21 @@
+{%extends 'principal.html'%}
+{%block title%}Elección de Recuperación{%endblock%}
+{%block content%}
+      <div class="contenedor">
+          <h1 style="margin-top: 1rem;">Eleccion de Datos a Recuperar</h1>
+          <p>
+            En esta sección deberás seleccionar el tipo de información que deseas recuperar. Puedes elegir entre tus datos personales (como nombre, fecha de nacimiento, etc.) o tus datos de acceso (como correo electrónico o contraseña). Asegúrate de seleccionar la opción que corresponda a la información que necesitas restablecer.
+          </p>
+          <div class="botones">
+              <a href="{%url 'recuperar'%}">Datos personales</a>
+              <a href="{%url 'datos_acceso'%}">Datos de acceso</a>
+          </div>
+      </div>
+
+  <style>
+    .contenedor{
+      margin-top: 6rem;
+    }
+  </style>
+
+{%endblock%}

@@ -1,11 +1,9 @@
 {%extends 'principal.html'%}
 {%block title%}Reguistro de Visita{%endblock%}
-
-        {%block content%}
-            <div class="main">
+{%block content%}
 
                 <!--Formulario-->
-                <form id="form" method="post" action="{% url 'registro_visita' %}" >
+                <form id="form" method="post" action="{% url 'registro_visita' %}" style="margin-top: 6rem;">
                     {% csrf_token %}
                     <!--Titulos-->
                     <h2>Registro de Visita</h2>
@@ -20,7 +18,7 @@
                         <input type="number" name="edad" id="edad" placeholder="Edad" required min='0' max='120'>
 
                         <label>Ingrese su Sexo:</label>
-                        <div class="radio-group">
+                        <div class="radio-group largo">
                             <label>
                                 <input type="radio" name="sexo" value="M" required> Hombre
                             </label>
@@ -29,10 +27,19 @@
                             </label>
                         </div>
 
+                        <div class="radio-group corto">
+                            <label>
+                                <input type="radio" name="sexo" value="M" required> M
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" value="F" required> F
+                            </label>
+                        </div>
+
                         <label for="">De que colonia procede:</label>
                         <div class="select-box">
                             <div class="select-option">
-                                <input name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly></input>
+                                <input name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly required></input>
                             </div>
                             <div class='content'>
                                 <div class='search'>
@@ -611,6 +618,13 @@
                                 <input type="radio" name="discapacidad" id="discapacidad" value="no">No
                             </label>
                         </div>
+
+                        <div id="discapacidad_es_container" style="display: none;">
+                            <label for="Especifique">Especifique Cual: </label>
+                            <input style="margin-top: 0.7rem;" type="text" name="discapacidad_es" id="discapacidad_es" placeholder="Especifique"  min="3" max="70">
+                        </div>
+
+                        <label for="estado_nacimiento">Ingrese su estado de nacimiento: </label>
                         <select id="estado_nacimiento" name="estado_nacimiento">
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Baja California">Baja California</option>
@@ -646,16 +660,35 @@
                             <option value="Zacatecas">Zacatecas</option>
                         </select>
 
+                        <label for="actividad">Seleccione la actividad que realizara: </label>
                         <select id="actividad" name="actividad">
-                            <option value="Visita">Visita</option>
+                            <option value="Canchas deportivas">Canchas deportivas</option>
+                            <option value="Canchas Rapidas">Canchas Rapidas</option>
+                            <option value="Areas Verdes">Areas Verdes</option>
                             <option value="Evento">Evento</option>
-                            <option value="biblioteca">Biblioteca</option>
-                        </select>                
+                            <option value="Biblioteca">Biblioteca</option>
+                            <option value="Área de entrenamiento fisico">Área de entrenamiento fisico</option>
+                            <option value="Otro">Otro</option>
+                        </select> 
+
+                        <label for="parque">Seleccione el parque al que ingresa: </label>
+                        <select id="parque" name="parque">
+                            <option value="Gimnasio Municipal">Gimnasio Municipal</option>
+                            <option value="BiblioParque Norte">BiblioParque Norte</option>
+                            <option value="BiblioParque sur">BiblioParque sur</option>
+                            <option value="Multideportivo el Sarape">Multideportivo el Sarape</option>
+                            <option value="Unidad Deportiva Carlos R. Gonzáles">Unidad Deportiva Carlos R. Gonzáles</option>
+                            <option value="Unidad Deportiva Jesús Carranza">Unidad Deportiva Jesús Carranza</option>
+                            <option value="Parque los Nogales">Parque los Nogales</option>
+                            <option value="Unidad Benito Juárez">Unidad Benito Juárez</option>
+                            <option value="Alberca Municipal Saltillo 2000">Alberca Municipal Saltillo 2000</option>
+                        </select>        
+                           
                     <!--Aviso de privacidad-->
                     <div class="form-group">
                         <label for="aviso_privacidad">
                                 <input type="checkbox" id="aviso_privacidad" name="aviso_privacidad" required>
-                        <span></span> <a download="Aviso de Privacidad" href="/static/Avisos_legales/cuentos.docx" required>Acepto los términos y condiciones de uso</a>
+                        <span></span> <a href="https://transparenciasaltillo.mx/aviso-de-privacidad/ " required>Acepto los términos y condiciones de uso</a>
                         </label>
                     </div>
                 </div>
@@ -668,5 +701,6 @@
                     <label style='display:none;' for="fecha_hora">Fecha y Hora:</label>
                     <input type="datetime-local" id="fecha_hora" name="fecha_hora" style='display:none;'>
 
-                </form> 
+                </form>
+                
         {%endblock%}

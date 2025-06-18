@@ -1,7 +1,6 @@
 {%extends 'principal.html'%}
 {%block title%}Reguistro de Usuario{%endblock%}
 {%block content%}
-        <div class="main">
             <!--Formulario-->
             <form id="form" method="POST" action="{% url 'datos_usuario' %}" >
                 {% csrf_token %}
@@ -14,27 +13,36 @@
                     <!--Registros ya estilados -->
                     <div class="input_grub">
                         <label for="name">Ingrese su nombre: </label>
-                        <input type="text" name="nombre" id="name" placeholder="Nombre" minlength="3" maxlength="100" value="{{usuario.nombre}}">
+                        <input type="text" name="nombre" id="name" placeholder="Nombre" minlength="3" maxlength="100" value="{{usuario.nombre}}" required>
 
                         <!--Fecha de nacimiento-->
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{usuario.fecha_nacimiento}}">
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{usuario.fecha_nacimiento}}" required>
                     
                         <input style="display: none;" type="text" name="edad" id="edad" placeholder="Edad" min="0" max="120" readonly>
 
                         <label>Ingrese su Sexo:</label>
-                        <div class="radio-group">
+                        <div class="radio-group largo">
                             <label>
-                                <input type="radio" name="sexo" value="M"> Hombre
+                                <input type="radio" name="sexo" value="M" required> Hombre
                             </label>
                             <label>
-                                <input type="radio" name="sexo" value="F"> Mujer
+                                <input type="radio" name="sexo" value="F" required> Mujer
                             </label>
                         </div>
-                
+
+                        <div class="radio-group corto">
+                            <label>
+                                <input type="radio" name="sexo" value="M" required> M
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" value="F" required> F
+                            </label>
+                        </div>
+                        <label for="">De que colonia procede:</label>
                         <div class="select-box">
                             <div class="select-option">
-                                <input value="{{usuario.colonia}}" name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly></input>
+                                <input value="{{usuario.colonia}}" name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly required></input>
                             </div>
                             <div class='content'>
                                 <div class='search'>
@@ -609,17 +617,22 @@
                         <label>Padece alguna discapacidad:</label>
                         <div class="radio-group">
                             <label for="discapacidad">
-                                <input type="radio" name="discapacidad" id="discapacidad" value="si">Sí
+                                <input type="radio" name="discapacidad" id="discapacidad" value="si" required>Sí
                             </label>
                             <label for="discapacidad">
-                                <input type="radio" name="discapacidad" id="discapacidad" value="no">No
+                                <input type="radio" name="discapacidad" id="discapacidad" value="no" required>No
                             </label>
+                        </div>
+
+                        <div id="discapacidad_es_container" style="display: none;">
+                            <label for="Especifique">Especifique Cual: </label>
+                            <input style="margin-top: 0.7rem;" type="text" name="discapacidad_es" id="discapacidad_es" placeholder="Especifique"  min="3" max="70">
                         </div>
                 
                 
                         <!--CURP-->
                         <label for="CURP">CURP</label>
-                        <input onkeyup="this.value = this.value.toUpperCase();" type="input" id="CURP" name="CURP" placeholder="CURP" value="{{usuario.CURP}}">
+                        <input onkeyup="this.value = this.value.toUpperCase();" type="input" id="CURP" name="CURP" placeholder="CURP" value="{{usuario.CURP}}" required>
                 
                         <!--Buscador de estados-->
                         <select id="estado_nacimiento" name="estado_nacimiento">
@@ -658,43 +671,50 @@
                         </select>
                 
                         <!--Siguiente-->
-                        <button id ='Button' class='Button' type="button">Siguiente</button> 
+                        <input class="btn" type="submit" value="Enviar" style="background-color: rgb(0, 255, 76);">
                     </div>
                 </div>
 
-                <div class="paso2" id='datos_u' style='display:none;'>
-
-                    <h2>Datos de acceso</h2>
-
-                    <label for="correo">Correo:</label>  
-                    <input class='datos_c' type="email" name="correo" placeholder="Correo electrónico">
-                    
-                    <label for="password">Contraseña:</label>
-                    <input  id='password' class='datos_c' type="password" name="password" placeholder="Contraseña" >
-
-                    <label for="password2" >Repita la Contraseña:</label>
-                    <input id='password2' class='datos_c' type="password" name="password2" placeholder="Contraseña">
-
-                    <div class="form-group">
-                        <label for="aviso_privacidad">
-                                <input type="checkbox" id="aviso_privacidad" name="aviso_privacidad">
-                        <span></span> <a download="Aviso de Privacidad" href="/static/Avisos_legales/cuentos.docx">Acepto los términos y condiciones de uso</a>
-                        </label>
-                    </div>
-
-
-                    <button id ='Button2' class='Button2' type="button">Volver</button> 
-
-    
-                    <!--Sumit-->
-                    <input class="btn" type="submit" value="Enviar">
-                  </div>
-
+            
             </form> 
-        </div>
 
 {% if errores.fecha_nacimiento %}
     <p class="error">{{ errores.fecha_nacimiento }}</p>
 {% endif %}
-    
+
+<style>
+    .btn:hover{
+        background-color: rgb(62, 187, 24);
+    }
+</style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+  const fechaInput = document.getElementById("fecha_nacimiento");
+  const edadInput = document.getElementById("edad");
+
+  fechaInput.addEventListener("change", function () {
+    const inputFecha = fechaInput.value;
+    if (!inputFecha) return;
+
+    const fechaNac = new Date(inputFecha);
+    const hoy = new Date();
+
+    if (fechaNac > hoy) {
+      alert("La fecha no puede ser futura");
+      edadInput.style.display = "none";
+      edadInput.value = '';
+      return;
+    }
+
+    let edad = hoy.getFullYear() - fechaNac.getFullYear();
+    const mes = hoy.getMonth() - fechaNac.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+      edad--;
+    }
+
+    edadInput.value = edad;
+  });
+});
+    </script>
 {%endblock%}

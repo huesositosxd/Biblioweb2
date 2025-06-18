@@ -26,10 +26,15 @@ SECRET_KEY = 'django-insecure-20d@wplph!lk4m)fqba&y3-q2inen%%fkatb_s7=p6h^9y26s$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+#'31.97.9.44','www.biblioweb.com.mx', 'biblioweb.com.mx'
+ALLOWED_HOSTS = ['31.97.9.44','biblioweb.com.mx', 'www.biblioweb.com.mx']
 
-ALLOWED_HOSTS = ['31.97.9.44','www.biblioweb.com.mx', 'biblioweb.com.mx']
-
-
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -110,11 +115,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-mx'
 
+USE_TZ = False
 TIME_ZONE = 'America/Monterrey'
 
 USE_I18N = True
 
-USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -141,3 +147,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#celery
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'

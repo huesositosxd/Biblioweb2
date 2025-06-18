@@ -1,10 +1,8 @@
 {%extends 'principal.html'%}
 {%block title%}Reguistro de Usuario{%endblock%}
 {%block content%}
-        <div class="bib2">
-
             <!--Formulario-->
-            <form id="form" method="POST" action="{% url 'registro_usuario' %}" >
+            <form id="form" method="POST" action="{% url 'registro_usuario' %}" style="margin-top: 6rem;">
                 {% csrf_token %}
                 <!--Titulos-->
 
@@ -24,15 +22,25 @@
                         <input style='display:none;' type="text" name="edad" id="edad" placeholder="Edad" min="0" max="120" readonly>
 
                         <label>Ingrese su Sexo:</label>
-                        <div class="radio-group">
+                        <div class="radio-group largo">
                             <label>
-                                <input type="radio" name="sexo" value="M"> Hombre
+                                <input type="radio" name="sexo" value="M" required> Hombre
                             </label>
                             <label>
-                                <input type="radio" name="sexo" value="F"> Mujer
+                                <input type="radio" name="sexo" value="F" required> Mujer
+                            </label>
+                        </div>
+
+                        <div class="radio-group corto">
+                            <label>
+                                <input type="radio" name="sexo" value="M" required> M
+                            </label>
+                            <label>
+                                <input type="radio" name="sexo" value="F" required> F
                             </label>
                         </div>
                 
+                        <label for="">Seleccione su colonia de procedencia: </label>
                         <div class="select-box">
                             <div class="select-option">
                                 <input name ='colonia' type='text' placeholder='Colonias' id='soValue' readonly></input>
@@ -616,13 +624,17 @@
                                 <input type="radio" name="discapacidad" id="discapacidad" value="no">No
                             </label>
                         </div>
-                
-                
+                        <div id="discapacidad_es_container" style="display: none;">
+                            <label for="Especifique">Especifique Cual: </label>
+                            <input style="margin-top: 0.7rem;" type="text" name="discapacidad_es" id="discapacidad_es" placeholder="Especifique" min="3" max="70">
+                        </div>
+
                         <!--CURP-->
                         <label for="CURP">CURP</label>
-                        <input onkeyup="this.value = this.value.toUpperCase();" type="input" id="CURP" name="CURP" placeholder="CURP">
+                        <input onkeyup="this.value = this.value.toUpperCase();" type="input" id="CURP" name="CURP" placeholder="CURP" max="18" min="18">
                 
                         <!--Buscador de estados-->
+                        <label for="">Seleccione su estado de nacimiento: </label>
                         <select id="estado_nacimiento" name="estado_nacimiento">
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Baja California">Baja California</option>
@@ -679,7 +691,7 @@
                     <div class="form-group">
                         <label for="aviso_privacidad">
                                 <input type="checkbox" id="aviso_privacidad" name="aviso_privacidad">
-                        <span></span> <a download="Aviso de Privacidad" href="/static/Avisos_legales/cuentos.docx">Acepto los términos y condiciones de uso</a>
+                        <span></span> <a  href="https://transparenciasaltillo.mx/aviso-de-privacidad/ ">Acepto los términos y condiciones de uso</a>
                         </label>
                     </div>
 
@@ -694,7 +706,6 @@
                   </div>
 
         </form>
-    </div> 
         {% if errores %}
             <script>
                 let mensajes = "";
@@ -705,6 +716,8 @@
             </script>
         {% endif %}   
     </div>
+    <style>
+    </style>
 
     
 {%endblock%}
