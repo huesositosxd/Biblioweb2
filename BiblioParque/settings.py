@@ -64,7 +64,7 @@ ROOT_URLCONF = 'BiblioParque.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'Aplicaciones' / 'Visitas' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
